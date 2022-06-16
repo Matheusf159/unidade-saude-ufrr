@@ -4,6 +4,7 @@
     height: 89px;
     align-items: center;
     justify-content: space-between;
+    /* width: 100vh; */
 }
 
 .logoImg {
@@ -34,7 +35,7 @@
 
 .pr {
     color: #FFFFFF;
-    margin-top: -20px;
+    margin-top: -5px;
 }
 
 .alink {

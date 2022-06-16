@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import styles from './signup.module.css'
 
 
-export default function SignUp() {
+export default function SignUpPatient() {
     const [orignSelect, setOrignSelect] = useState("")
 
     return (
