@@ -1,0 +1,170 @@
+.wraper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content {
+    justify-content: center;
+    height: 600px;
+    width: 1000px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+.firstLine {
+    margin-top: 54px;
+    display: flex;
+    justify-content: space-around;
+} 
+
+.nameInput {
+    width: 500px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.sexSelect {
+    width: 100px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.colorInput {
+    width: 100px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.secondLine {
+    margin-top: 54px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.birthDateInput {
+    width: 150px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.naturalnessInput {
+    width: 170px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.maritalStatusInput {
+    width: 150px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.thirdLine {
+    margin-top: 54px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.professionInput {
+    width: 170px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.schoolingInput {
+    width: 200px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.phoneInput {
+    width: 170px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.fourthLine {
+    margin-top: 54px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.addressInput {
+    width: 200px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.districtInput {
+    width: 150px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.cityInput {
+    width: 130px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.ufInput {
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.fifthLine {
+    margin-top: 54px;
+    display: flex;
+    justify-content: space-around;
+} 
+
+.orignSelect {
+    width: 100px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+.nameOrignInput {
+    width: 200px;
+    height: 30px;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+
+form {
+    align-items: center;
+}
+
+.sixth {
+    margin-top: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 210px;
+    height: 41px;
+    border-radius: 8px;
+    background-color: #2A3F54;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
