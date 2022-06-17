@@ -4,7 +4,7 @@ import { MdAccountCircle } from 'react-icons/md'
 
 import styles from './header.module.css'
 
-import Logo from "../../images/logo.png"
+import Logo from "../../assets/Images/logoUfrr.png"
 
 export default function Header(props) {
     return (
