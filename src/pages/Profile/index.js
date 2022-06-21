@@ -18,8 +18,9 @@ export default function Profile() {
                         <div className={styles.left}>
                             <MdAccountCircle size={50} color="blue" />
                             
+                            <p>nome</p>
                             <div>
-                                
+
                             </div>
                         </div>
 
