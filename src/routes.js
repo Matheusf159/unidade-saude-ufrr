@@ -6,6 +6,7 @@ import Menu from './pages/Menu'
 import Schedule from './pages/Schedule'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import PacientList from './pages/PacientList'
 
 export default function Router() {
     return (
@@ -16,6 +17,7 @@ export default function Router() {
                 <Route path="/signupPatient" element={ <SignUpPatient />} />
                 <Route path="/schedule" element={ <Schedule />} />
                 <Route path="/profile" element={ <Profile />} />
+                <Route path="/pacientList" element={ <PacientList />} />
             </Routes>
         </BrowserRouter>
     )

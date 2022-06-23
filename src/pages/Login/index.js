@@ -10,8 +10,7 @@ import logoUfrr from "../../assets/Images/logoUfrr.png";
 
 import styles from "./login.module.css";
 
-const URL = process.env.REACT_APP_URL;
-
+const URL = "http://localhost:5000";
 export default function Login (){
     
     const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentist' };
