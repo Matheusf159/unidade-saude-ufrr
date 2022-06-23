@@ -1,7 +1,7 @@
 .body {
     display: flex;
     background-color: rgba(42,63,84,255);
-    height: 100vh;
+    min-height: 100vh !important;
 }
 .paper {
     margin-top: 50%;
