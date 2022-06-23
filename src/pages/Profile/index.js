@@ -16,17 +16,22 @@ export default function Profile() {
                 <div className={styles.content}>
                     <div className={styles.head}>
                         <div className={styles.left}>
-                            <MdAccountCircle size={50} color="blue" />
+                            <MdAccountCircle size={70} color="2A3F54" />
                             
-                            <p>nome</p>
-                            <div>
-
+                            <div className={styles.nameRegisty}>
+                                <p style={{fontWeight: "bold", fontSize: 18}}>José da Silva</p>
+                                <p style={{marginTop: -20, fontWeight: "lighter" }}>Matrícula: 123456789</p>
                             </div>
                         </div>
 
                         <div className={styles.right}>
-
+                            <button>EDITAR</button>
+                            <button>AGENDAR</button>
                         </div>
+                    </div>
+
+                    <div className={styles.dates}>
+
                     </div>
                 </div>
 
