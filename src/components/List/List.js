@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Checkbox } from "@mui/material";
 import "./List.module.css";
 
  export default function List({header, items, check, handlePresence}){
+
+    let rowIndexTemp = 0;
     
     function renderHeader(Data, index){
         return(
@@ -9,24 +12,28 @@ import "./List.module.css";
         )
     }
 
-    function renderRow(Data, index){
+    function renderRow(Data, RowIndex){
+        const width = 50/(header.length-1);
+        rowIndexTemp = RowIndex;
+
         return(
-            <tr key={index}>
+            <tr key={RowIndex}>
+                <td style={{"width": `${width}+%`, textAlign: "center"}}>{RowIndex}</td>
                 {
-                    Data.map(renderBody)
+                    Data.map(renderItem)
                 }
             </tr>
         )
     }
 
-    function renderBody(Data, index ){
+    function renderItem(Data, ColumnIndex){
         const width = 50/(header.length-1);
-        console.log(index);
+        
         return(
-            <td key={index} style={{"width": index===0 ? "50%": `${width}+%`, textAlign: index!==0 ? "center": "left"}}>
+            <td key={ColumnIndex} style={{"width": ColumnIndex===0 ? "50%": `${width}+%`, textAlign: ColumnIndex!==0 ? "center": "left"}}>
                 {
-                    header.length === index+1 && check===true
-                    ? <Checkbox onClick={handlePresence} name={`${index}`}/>
+                    header.length === ColumnIndex+2 && check===true
+                    ? <Checkbox onClick={handlePresence} name={`${rowIndexTemp}`}/>
                     : Data
                 }
             </td>

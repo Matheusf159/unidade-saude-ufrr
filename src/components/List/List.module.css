@@ -1,8 +1,30 @@
-table, td, th {
+td, th {
     border: 1px solid;
 }
-  
+
+/*superior left corner*/
+tr:first-child th:first-child{
+    border-top-left-radius: 10px;
+}
+
+/*superior right corner*/
+tr:first-child th:last-child{
+    border-top-right-radius: 10px;
+}
+
+/*inferior left corner*/
+tr:last-child td:first-child{
+    border-bottom-left-radius: 10px;
+}
+
+/*inferior right corner*/
+tr:last-child td:last-child{
+    border-bottom-right-radius: 10px;
+}
+
 table {
-    width: 90%;
-    border-collapse: collapse;
+    margin-top: 20px;
+    width: 90vw;
+    border-collapse: separate;
+    border-spacing: 0;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../../components/Header";
+import Navbar from "../../components/Navbar/Navbar";
 
 import styles from './signup.module.css'
 
@@ -9,7 +9,7 @@ export default function SignUpPatient() {
 
     return (
         <div>
-            <Header title="CADASTRO" />
+            <Navbar title="CADASTRO" />
 
             <div  className={styles.wraper}>
                 <div className={styles.content}>
