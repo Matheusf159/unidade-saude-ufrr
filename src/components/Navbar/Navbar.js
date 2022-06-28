@@ -32,7 +32,7 @@ export default function Navbar({title}){
 
         function logoutEffect() {
 
-            history('/');
+            // history('/');
             localStorage.removeItem('TokenHealthUnityUFRR');
         };
 
