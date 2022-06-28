@@ -39,22 +39,40 @@ export default function Navbar({title}){
       }, [location, history]);
 
     if(location.pathname!=='/'){
+
         return(
-            <AppBar className={styles.appBar} position="static" color="inherit">
+            <AppBar 
+                className={styles.appBar} 
+                style={{
+                    display: "flex", flexDirection: "row", justifyContent: "space-between", 
+                    alignItems: "center", padding: "0px 20px", backgroundColor:"rgba(42,63,84,255)"
+                }} 
+                position="static" 
+                color="inherit"
+                >
                 
-                <img className={styles.image} src={logoUfrr} alt="logoEmbrapa" height="77" />
+                <img className={styles.image} style={{marginLeft: "15px"}} src={logoUfrr} alt="logoEmbrapa" height="77" />
                 
                 {user ? (
-                    <Typography component={Link} to="/menu" className={styles.heading} style={{textDecoration: "none"}}  variant="h4">{title}</Typography>
+                    <Typography component={Link} to="/menu" className={styles.heading} style={{textDecoration: "none", color: "rgba(255,255,255,255)"}}  variant="h4">{title}</Typography>
                 ):(
-                    <Typography to="/Menu" className={styles.heading} style={{textDecoration: "none"}} variant="h4">{title}</Typography>
+                    <Typography to="/Menu" className={styles.heading} style={{textDecoration: "none", color: "rgba(255,255,255,255)"}} variant="h4">{title}</Typography>
                 )}
                 
-                <Toolbar className={styles.toolbar}>
+                <Toolbar className={styles.toolbar} style={{display: "flex", justifyContent: "flex-end", maxWidth: "400px"}}>
                     {user ? (
-                        <div className={styles.profile}>
-                            <Avatar className={styles.blue} alt={user.name} src={user.profileImage}>{user.name.charAt(0)}</Avatar>
-                            <Typography className={styles.userName} variant="h6">{user.name}</Typography>
+                        <div className={styles.profile} style={{display: "flex", justifyContent: "space-between"}}>
+                            <Avatar className={styles.blue} style={{color: "rgba(255,255,255,255)", backgroundColor: "rgba(3,83,127,255)"}} alt={user.name} src={user.profileImage}>{user.name.charAt(0)}</Avatar>
+                            <Typography 
+                                className={styles.userName} 
+                                style={{
+                                    display: "flex", 
+                                    alignItems: "center", 
+                                    color: "rgba(255,255,255,255)",
+                                    margin: "0 10px 0 10px"
+                                }} 
+                                variant="h6">{user.name}
+                            </Typography>
                             <Button variant="contained" color="error" onClick={logout}>Logout</Button>
                         </div>
                     ):(

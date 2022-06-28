@@ -7,6 +7,7 @@ import Schedule from './pages/Schedule'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 import PacientList from './pages/PacientList'
+import Staff from './pages/Staff'
 
 export default function Router() {
     return (
@@ -18,6 +19,7 @@ export default function Router() {
                 <Route path="/schedule" element={ <Schedule />} />
                 <Route path="/profile" element={ <Profile />} />
                 <Route path="/pacientList" element={ <PacientList />} />
+                <Route path="staff" element={<Staff />} />
             </Routes>
         </BrowserRouter>
     )

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Checkbox } from "@mui/material";
 import "./List.module.css";
 
@@ -30,11 +29,17 @@ import "./List.module.css";
         const width = 50/(header.length-1);
         
         return(
-            <td key={ColumnIndex} style={{"width": ColumnIndex===0 ? "50%": `${width}+%`, textAlign: ColumnIndex!==0 ? "center": "left"}}>
+            <td 
+                key={ColumnIndex} 
+                style={{
+                    "width": ColumnIndex===0 ? "50%": `${width}+%`, 
+                    textAlign: ColumnIndex!==0 ? "center": "left",
+                    
+                }}>
                 {
                     header.length === ColumnIndex+2 && check===true
                     ? <Checkbox onClick={handlePresence} name={`${rowIndexTemp}`}/>
-                    : Data
+                    : <span style={{marginLeft: ColumnIndex!==0? "0":"10px"}}>{Data}</span>
                 }
             </td>
         )
