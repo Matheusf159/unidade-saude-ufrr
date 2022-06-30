@@ -66,28 +66,6 @@ export default function Menu() {
                             </button>
                         </Link>
                     </div>
-
-                    <div className={styles.line}>
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button className={styles.button}>
-                                <MdPersonAdd size={50} />
-                                Cadastrar Usuário
-                            </button>
-                        </Link>
-
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button className={styles.button}>
-                                <MdOutlineAddchart size={50} />
-                                Relatório
-                            </button>
-                        </Link>
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button className={styles.button}>
-                                <MdOutlineCalendarToday size={50} />
-                                Agendar Consulta
-                            </button>
-                        </Link>
-                    </div>
                 </div>
             </div>
         </div>

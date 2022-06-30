@@ -10,6 +10,9 @@ export default function SignUpPatient() {
     //temporario
     const [sex, setSex] = useState("")
 
+
+    console.log("ORIGIN", sex)
+
     return (
         <div>
             <Navbar title="CADASTRO" />
@@ -25,7 +28,7 @@ export default function SignUpPatient() {
                             
                             <label className="sexLabel">
                                 sexo:
-                                <select className={styles.sexSelect} value={sex} onChange={(e) => setSex({value: e.target.value})}>
+                                <select className={styles.sexSelect} value={sex.value} onChange={(e) => setSex({value: e.target.value})}>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                 </select>
@@ -97,7 +100,7 @@ export default function SignUpPatient() {
                         <div className={styles.fifthLine}>
                             <label className="orignLabel">
                                 Origem:
-                                <select className={styles.orignSelect} value={orignSelect} onChange={(e) => setOrignSelect({value: e.target.value})}>
+                                <select className={styles.orignSelect} value={orignSelect.value} onChange={(e) => setOrignSelect({value: e.target.value})}>
                                     <option value="" disabled hidden></option>
                                     <option value="Servidor">Servidor</option>
                                     <option value="Dependente">Dependente</option>

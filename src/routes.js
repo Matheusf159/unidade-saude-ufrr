@@ -22,7 +22,7 @@ export default function Router() {
                 <Route path="/schedule" element={ <Schedule />} />
                 <Route path="/profile" element={ <Profile />} />
                 <Route path="/pacientList" element={ <PacientList />} />
-                <Route path="staff" element={<Staff />} />
+                <Route path="/staff" element={<Staff />} />
                 <Route path="/reportGraphic" element={<ReportGraphic />} />
                 <Route path="/pacientSearch" element={<PacientSearch />} />
                 <Route path="/users" element={<Users />} />
