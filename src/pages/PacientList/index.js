@@ -7,11 +7,11 @@ import "./PacientList.css";
 export default function PacientList() {
  
     const header = ["ID", "Nome", "Presente"];
-    const [items, setItems] = useState([["José", false], ["Ciclano", false]]);
+    const [items, setItems] = useState([["3783hdhs", "José", false], ["38d923d","Ciclano", false]]);
 
     function handlePresence(e){
         let newItemsList = [...items];
-        newItemsList[e.target.name][1] = e.target.checked;
+        newItemsList[e.target.name][2] = e.target.checked;
         
         setItems(newItemsList);
     }

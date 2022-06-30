@@ -55,8 +55,8 @@
 }
 
 
-button {
-    width: 136px;
+.button {
+    width: 136px; 
     height: 38px;
     display: flex;
     flex-direction: column;

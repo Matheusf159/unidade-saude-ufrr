@@ -10,7 +10,7 @@ import logoUfrr from "../../assets/Images/logoUfrr.png";
 
 import styles from "./login.module.css";
 
-const URL = "http://localhost:5000";
+const URL = process.env.REACT_APP_URL;
 export default function Login (){
     
     const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentist' };
@@ -54,7 +54,7 @@ export default function Login (){
 		.catch(function (error) {
             //create ui msg box
 			console.log(error);
-		})
+		}) 
     }
 
     async function createUser(){
@@ -117,7 +117,7 @@ export default function Login (){
         <div className={styles.body}>
         <Container component="main" maxWidth="xs">
             <Paper className={styles.paper} elevation={3}>
-                <img src={logoUfrr} alt="logoEmbrapa" height="60" />
+                <img src={logoUfrr} alt="logoUfrr" height="60" />
                 <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
                 <form className={styles.form} onSubmit={handleSubmit}>
                         { isSignup && (

@@ -25,8 +25,8 @@ export default function Profile() {
                         </div>
 
                         <div className={styles.right}>
-                            <button>EDITAR</button>
-                            <button>AGENDAR</button>
+                            <button className={styles.button}>EDITAR</button>
+                            <button className={styles.button}>AGENDAR</button>
                         </div>
                     </div>
 

@@ -29,14 +29,14 @@ export default function Menu() {
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
+                        <Link to="/pacientSearch" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdPersonSearch size={50} />
                                 Buscar Paciente
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
+                        <Link to="/staff" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdGroups size={50} />
                                 Funcionários
@@ -45,7 +45,7 @@ export default function Menu() {
                     </div> 
                     
                     <div className={styles.line}>
-                        <Link to="/schedule" className={styles.btnMenu} >
+                        <Link to="/reportGraphic" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdOutlineAddchart size={50} />
                                 Relatório

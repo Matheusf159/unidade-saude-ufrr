@@ -9,6 +9,8 @@ import Profile from './pages/Profile'
 import PacientList from './pages/PacientList'
 import Staff from './pages/Staff'
 import ReportGraphic from './pages/ReportGraphic'
+import PacientSearch from './pages/PacientSearch'
+import Users from './pages/Users'
 
 export default function Router() {
     return (
@@ -22,7 +24,9 @@ export default function Router() {
                 <Route path="/pacientList" element={ <PacientList />} />
                 <Route path="staff" element={<Staff />} />
                 <Route path="/reportGraphic" element={<ReportGraphic />} />
+                <Route path="/pacientSearch" element={<PacientSearch />} />
+                <Route path="/users" element={<Users />} />
             </Routes>
-        </BrowserRouter>
+        </BrowserRouter> 
     )
 }

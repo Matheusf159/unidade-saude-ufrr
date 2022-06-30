@@ -5,7 +5,10 @@ import styles from './signup.module.css'
 
 
 export default function SignUpPatient() {
-    const [orignSelect, setOrignSelect] = useState("")
+    const [orignSelect, setOrignSelect] = useState({value: ""})
+
+    //temporario
+    const [sex, setSex] = useState("")
 
     return (
         <div>
@@ -22,7 +25,7 @@ export default function SignUpPatient() {
                             
                             <label className="sexLabel">
                                 sexo:
-                                <select className={styles.sexSelect}>
+                                <select className={styles.sexSelect} value={sex} onChange={(e) => setSex({value: e.target.value})}>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                 </select>
@@ -94,16 +97,14 @@ export default function SignUpPatient() {
                         <div className={styles.fifthLine}>
                             <label className="orignLabel">
                                 Origem:
-                                <select className={styles.orignSelect} onChange={(e) => setOrignSelect({value: e.target.value})}>
-                                    <option value="" selected disabled hidden></option>
+                                <select className={styles.orignSelect} value={orignSelect} onChange={(e) => setOrignSelect({value: e.target.value})}>
+                                    <option value="" disabled hidden></option>
                                     <option value="Servidor">Servidor</option>
                                     <option value="Dependente">Dependente</option>
                                     <option value="Aluno">Aluno</option>
                                     <option value="Comunidade">Comunidade</option>
                                 </select>
                             </label>
-
-                            {console.log(orignSelect)}
                             
                             <div style={{display: orignSelect.value === "Servidor" ? "" : "none"}}>
                                 <label className="nameOrignLabel">
