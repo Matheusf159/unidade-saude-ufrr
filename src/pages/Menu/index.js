@@ -52,7 +52,7 @@ export default function Menu() {
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
+                        <Link to="/registerStaff" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdPersonAdd size={50} />
                                 Cadastrar Funcionário

@@ -10,9 +10,6 @@ export default function SignUpPatient() {
     //temporario
     const [sex, setSex] = useState("")
 
-
-    console.log("ORIGIN", sex)
-
     return (
         <div>
             <Navbar title="CADASTRO" />

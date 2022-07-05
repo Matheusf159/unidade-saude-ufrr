@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header";
+import Navbar from "../../components/Navbar/Navbar";
 
 import styles from './schedule.module.css'
 
@@ -7,7 +7,7 @@ import styles from './schedule.module.css'
 export default function Schedules() {
     return (
         <div>
-            <Header title="AGENDAMENTO" />
+            <Navbar title="AGENDAMENTO" />
 
             <div  className={styles.wraper}>
                 <div className={styles.content}>

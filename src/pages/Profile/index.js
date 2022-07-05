@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../components/Header'
+import Navbar from '../../components/Navbar/Navbar'
 import { Link } from "react-router-dom"
 
 
@@ -10,7 +10,8 @@ import styles from './profile.module.css'
 export default function Profile() {
     return (
         <div>
-            <Header title="PERFIL" /> 
+ 
+            <Navbar title="PERFIL" />
 
             <div  className={styles.wraper}>
                 <div className={styles.content}>
