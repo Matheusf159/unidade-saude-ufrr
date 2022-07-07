@@ -39,7 +39,7 @@ export default function Menu() {
                         <Link to="/staff" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdGroups size={50} />
-                                Funcionários
+                                Usuários
                             </button>
                         </Link>
                     </div> 
@@ -52,10 +52,10 @@ export default function Menu() {
                             </button>
                         </Link>
 
-                        <Link to="/registerStaff" className={styles.btnMenu} >
+                        <Link to="/registerUser" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdPersonAdd size={50} />
-                                Cadastrar Funcionário
+                                Cadastrar Usuário
                             </button>
                         </Link>
 

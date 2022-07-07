@@ -11,7 +11,7 @@ import Staff from './pages/Staff'
 import ReportGraphic from './pages/ReportGraphic'
 import PacientSearch from './pages/PacientSearch'
 import Users from './pages/Users'
-import RegisterStaff from './pages/RegisterStaff'
+import RegisterUser from './pages/RegisterUser'
 
 export default function Router() {
     return (
@@ -27,7 +27,7 @@ export default function Router() {
                 <Route path="/reportGraphic" element={<ReportGraphic />} />
                 <Route path="/pacientSearch" element={<PacientSearch />} />
                 <Route path="/users" element={<Users />} />
-                <Route path="/registerStaff" element={<RegisterStaff />} />
+                <Route path="/registerUser" element={<RegisterUser />} />
             </Routes>
         </BrowserRouter>  
     )

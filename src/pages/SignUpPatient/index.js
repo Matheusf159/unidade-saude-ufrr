@@ -7,7 +7,8 @@ import styles from './signup.module.css'
 
 const URL = process.env.REACT_APP_URL;
 export default function SignUpPatient() {
-    
+
+    const token = localStorage.getItem('TokenHealthUnityUFRR');
     const initialState = { 
         name: '', sex: 'Masculino', skinTone: 'Amarelo', birthDate: '', naturalness: '', maritalState: 'Solteiro', 
         profession: '', levelEducation: '', cellPhone: '', address: '', district: '', county: '',
@@ -20,6 +21,8 @@ export default function SignUpPatient() {
     async function registerPacient(e){
         e.preventDefault();
         
+        const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
+
         await axios.post(`${URL}/pacient/createPacient`, 
             {
                 name: formData.name, sex: formData.sex, skinTone: formData.skinTone, birthDate: formData.birthDate,
@@ -27,10 +30,11 @@ export default function SignUpPatient() {
                 levelEducation: formData.levelEducation, cellPhone: formData.cellPhone, address: formData.address, 
                 district: formData.district, county: formData.county, uf: formData.uf, origin: formData.origin, 
                 namePublicEmploye: formData.namePublicEmploye, nameResponsible: formData.nameResponsible
-            }
+            },
+            { headers: {Authorization: AuthStr} }
         ).then(res => {
             //create ui msg box
-            history('/menu');
+            history('/schedule'); 
         })
 		.catch(function (error) {
             //create ui msg box
