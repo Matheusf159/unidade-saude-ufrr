@@ -5,12 +5,13 @@ import SignUpPatient from './pages/SignUpPatient'
 import Menu from './pages/Menu'
 import Schedule from './pages/Schedule'
 import Login from './pages/Login'
-import Profile from './pages/Profile'
+import PacientProfile from './pages/PacientProfile'
 import PacientList from './pages/PacientList'
 import Staff from './pages/Staff'
 import ReportGraphic from './pages/ReportGraphic'
 import PacientSearch from './pages/PacientSearch'
 import Users from './pages/Users'
+import UserProfile from './pages/UserProfile'
 import RegisterStaff from './pages/RegisterStaff'
 
 export default function Router() {
@@ -21,12 +22,13 @@ export default function Router() {
                 <Route path="/menu" element={ <Menu />} />
                 <Route path="/signupPatient" element={ <SignUpPatient />} />
                 <Route path="/schedule" element={ <Schedule />} />
-                <Route path="/profile" element={ <Profile />} />
+                <Route path="/pacientProfile" element={ <PacientProfile />} />
                 <Route path="/pacientList" element={ <PacientList />} />
                 <Route path="/staff" element={<Staff />} />
                 <Route path="/reportGraphic" element={<ReportGraphic />} />
                 <Route path="/pacientSearch" element={<PacientSearch />} />
                 <Route path="/users" element={<Users />} />
+                <Route path="/userProfile" element={<UserProfile />} />
                 <Route path="/registerStaff" element={<RegisterStaff />} />
             </Routes>
         </BrowserRouter>  

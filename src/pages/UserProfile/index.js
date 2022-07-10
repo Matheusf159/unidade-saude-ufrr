@@ -5,9 +5,9 @@ import { Link } from "react-router-dom"
 
 import { MdAccountCircle } from 'react-icons/md'
 
-import styles from './profile.module.css'
+import styles from './userProfile.module.css'
 
-export default function Profile() {
+export default function UserProfile() {
     return (
         <div>
  
