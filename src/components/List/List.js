@@ -1,4 +1,5 @@
 import { Checkbox } from "@mui/material";
+import { Link } from 'react-router-dom';
 import "./List.module.css";
 
  export default function List({header, items, check, select, handlePresence, handleStatus, filter}){
@@ -18,7 +19,7 @@ import "./List.module.css";
         return(
             Data[1].toUpperCase().includes(filter) || filter===''
             ?   <tr key={RowIndex}>
-                    <td style={{"width": `${width}+%`, textAlign: "center"}}>{RowIndex}</td>
+                    <td style={{"width": `${width}+%`, textAlign: "center"}}>{RowIndex+1}</td>
                     {
                         Data.map(renderItem)
                     }
@@ -53,6 +54,10 @@ import "./List.module.css";
                         ? <select style={{marginLeft: ColumnIndex!==1? "0":"10px"}} name={`${rowIndexTemp}`} value={Data} disabled>
                             <option value={"adm"}>Administrador</option>
                             </select>
+                        : Data==="Visualizar"
+                        ? <Link to="/pacientProfile" state={{id:items[rowIndexTemp][0]}}>
+                            <button>{Data}</button>
+                          </Link>
                         : <span style={{marginLeft: ColumnIndex!==1? "0":"10px"}}>{Data}</span>
                     }
                 </td>

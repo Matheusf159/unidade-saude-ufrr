@@ -52,7 +52,7 @@ export default function Users(){
         let newItemsList = [...items];
         newItemsList[e.target.name][3] = e.target.value;
 
-        await axios.post(`${URL}/user/updateUser/${newItemsList[e.target.name][0]}`, 
+        await axios.patch(`${URL}/user/updateUser/${newItemsList[e.target.name][0]}`, 
             [{propName: "status", value: e.target.value}], {headers: {Authorization: AuthStr}}
         ).then(res => {
             //create ui msg box
