@@ -1,7 +1,7 @@
 import { Checkbox } from "@mui/material";
 import "./List.module.css";
 
- export default function List({header, items, check, select, handlePresence, handleStatus}){
+ export default function List({header, items, check, select, handlePresence, handleStatus, filter}){
 
     let rowIndexTemp = 0;
     
@@ -16,12 +16,14 @@ import "./List.module.css";
         rowIndexTemp = RowIndex;
 
         return(
-            <tr key={RowIndex}>
-                <td style={{"width": `${width}+%`, textAlign: "center"}}>{RowIndex}</td>
-                {
-                    Data.map(renderItem)
-                }
-            </tr>
+            Data[1].toUpperCase().includes(filter) || filter===''
+            ?   <tr key={RowIndex}>
+                    <td style={{"width": `${width}+%`, textAlign: "center"}}>{RowIndex}</td>
+                    {
+                        Data.map(renderItem)
+                    }
+                </tr>
+            :   <></>
         )
     }
 
@@ -40,14 +42,17 @@ import "./List.module.css";
                     {
                         header.length === ColumnIndex+1 && check===true
                         ? <Checkbox onClick={handlePresence} name={`${rowIndexTemp}`}/>
-                        : header.length === ColumnIndex+1 && select===true
+                        : header.length === ColumnIndex+1 && select===true && Data!=="adm"
                         ? <select style={{marginLeft: ColumnIndex!==1? "0":"10px"}} name={`${rowIndexTemp}`} value={Data} onChange={handleStatus}>
-                            <option value={"adm"}>Administrador</option>
                             <option value={"approved"}>Aprovado</option>
                             <option value={"disabled"}>Desabilitado</option>
                             <option value={"pending"}>Pendente</option>
                             <option value={"rejected"}>Rejeitado</option>
                           </select>
+                        : header.length === ColumnIndex+1 && select===true && Data==="adm"
+                        ? <select style={{marginLeft: ColumnIndex!==1? "0":"10px"}} name={`${rowIndexTemp}`} value={Data} disabled>
+                            <option value={"adm"}>Administrador</option>
+                            </select>
                         : <span style={{marginLeft: ColumnIndex!==1? "0":"10px"}}>{Data}</span>
                     }
                 </td>

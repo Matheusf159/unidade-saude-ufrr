@@ -21,7 +21,7 @@ export default function Staff() {
                     <button className={styles.btn}>BUSCAR</button>
                 </div>
 
-                <List header={header} items={items} check={false} />
+                <List header={header} items={items} check={false} filter='' />
             
             </div>
         </div>

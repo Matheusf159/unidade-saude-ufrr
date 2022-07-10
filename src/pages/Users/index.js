@@ -10,7 +10,9 @@ export default function Users(){
 
     const token = localStorage.getItem('TokenHealthUnityUFRR');
     const header = ["ID", "Nome", "Tipo", "Status"];
-    const [items, setItems] = useState([["3783hdhs", "José", "Pediatra", "approved"], ["38d923d", "Ciclano", "Nutrição", "pending"], ["623gydh3", "Beltrano", "Dentista", "admr"]]);
+    const [items, setItems] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [filterInput, setFilterInput] = useState('');
 
     useEffect(() => {
         //remove o " no início e no fim de token 
@@ -25,11 +27,12 @@ export default function Users(){
                         tempColumns.push(item._id);
                         tempColumns.push(item.name);
                         tempColumns.push(item.type);
-                        tempColumns.push(item.status);
+                        item.type==="adm"? tempColumns.push("adm"): tempColumns.push(item.status);
                         tempLines.push(tempColumns);
-                        tempColumns = [];
+                        tempColumns = []; 
                     });
-                    setItems(tempLines)
+
+                    setItems(tempLines);
                 }
             })
             .catch(function (error) {
@@ -41,9 +44,24 @@ export default function Users(){
         
     }, []);
 
-    function handleStatus(e){
+
+    async function handleStatus(e){
+        //remove o " no início e no fim de token 
+        const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
+
         let newItemsList = [...items];
         newItemsList[e.target.name][3] = e.target.value;
+
+        await axios.post(`${URL}/user/updateUser/${newItemsList[e.target.name][0]}`, 
+            [{propName: "status", value: e.target.value}], {headers: {Authorization: AuthStr}}
+        ).then(res => {
+            //create ui msg box
+            console.log(res.data);
+        })
+        .catch(function (error) {
+            //create ui msg box
+            console.log(error);
+        })
         
         setItems(newItemsList);
     }
@@ -55,11 +73,11 @@ export default function Users(){
             <div style={{display:"flex", alignItems: "center", flexDirection: "column"}}>
                 <div className={styles.container}>
                     <span>Nome do Usuário:</span>
-                    <input type="text" className={styles.nameInput} />
-                    <button className={styles.btn}>BUSCAR</button>
+                    <input type="text" valeu={filterInput} className={styles.nameInput} onChange={e => setFilterInput(e.target.value.toUpperCase())} />
+                    <button className={styles.btn} onClick={()=>setFilter(filterInput)}>BUSCAR</button>
                 </div>
 
-                <List header={header} items={items} select={true} handleStatus={handleStatus} />
+                <List header={header} items={items} select={true} handleStatus={handleStatus} filter={filter}/>
 
             </div>
 
