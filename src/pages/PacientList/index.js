@@ -27,7 +27,7 @@ export default function PacientList() {
                 </div>
             
 
-                <List header={header} items={items} check={true} handlePresence={handlePresence}/>
+                <List header={header} items={items} check={true} filter='' handlePresence={handlePresence}/>
             
             </div>
         </div>

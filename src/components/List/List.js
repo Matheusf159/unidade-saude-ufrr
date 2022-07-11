@@ -58,6 +58,10 @@ import "./List.module.css";
                         ? <Link to="/pacientProfile" state={{id:items[rowIndexTemp][0]}}>
                             <button>{Data}</button>
                           </Link>
+                        : Data==="Visualizar."
+                        ? <Link to="/userProfile" state={{id:items[rowIndexTemp][0]}}>
+                            <button>{Data}</button>
+                          </Link>
                         : <span style={{marginLeft: ColumnIndex!==1? "0":"10px"}}>{Data}</span>
                     }
                 </td>

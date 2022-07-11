@@ -59,10 +59,10 @@ export default function Menu() {
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
+                        <Link to="/pacientList" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdOutlineCalendarToday size={50} />
-                                Agendar Consulta
+                                Consultas do Dia
                             </button>
                         </Link>
                     </div>

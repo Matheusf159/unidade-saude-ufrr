@@ -9,7 +9,7 @@ const URL = process.env.REACT_APP_URL;
 export default function Users(){
 
     const token = localStorage.getItem('TokenHealthUnityUFRR');
-    const header = ["ID", "Nome", "Tipo", "Status"];
+    const header = ["ID", "Nome", "Tipo", "Visualizar", "Status"];
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState('');
     const [filterInput, setFilterInput] = useState('');
@@ -27,6 +27,7 @@ export default function Users(){
                         tempColumns.push(item._id);
                         tempColumns.push(item.name);
                         tempColumns.push(item.type);
+                        tempColumns.push("Visualizar.");
                         item.type==="adm"? tempColumns.push("adm"): tempColumns.push(item.status);
                         tempLines.push(tempColumns);
                         tempColumns = []; 
@@ -66,7 +67,7 @@ export default function Users(){
         setItems(newItemsList);
     }
 
-    return(
+    return( 
         <div>
             <Navbar title="USUÁRIOS" />
 
