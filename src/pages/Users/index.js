@@ -51,7 +51,7 @@ export default function Users(){
         const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
 
         let newItemsList = [...items];
-        newItemsList[e.target.name][3] = e.target.value;
+        newItemsList[e.target.name][4] = e.target.value;
 
         await axios.patch(`${URL}/user/updateUser/${newItemsList[e.target.name][0]}`, 
             [{propName: "status", value: e.target.value}], {headers: {Authorization: AuthStr}}

@@ -13,7 +13,7 @@ import styles from "./login.module.css";
 const URL = process.env.REACT_APP_URL;
 export default function Login (){
     
-    const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentist' };
+    const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentista' };
 
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
@@ -21,8 +21,8 @@ export default function Login (){
 
     const [radioOpts, setRadioOpts] = useState([
         [{name: "Dentista", value: "Dentista-0", checked: true}, {name: "Enfermeiro(a)", value: "Enfermeiro(a)-0", checked: false}],
-        [{name: "fisioterapeuta", value: "fisioterapeuta-1", checked: false}, {name: "Médico(a)", value: "Médico(a)-1", checked: false}],
-        [{name: "psicólogo(a)", value: "psicólogo(a)-2", checked: false}]
+        [{name: "fisioterapeuta", value: "Fisioterapeuta-1", checked: false}, {name: "Médico(a)", value: "Médico(a)-1", checked: false}],
+        [{name: "psicólogo(a)", value: "Psicólogo(a)-2", checked: false}]
     ]);
 
     const [selectedRadio, setSelectedRadio] = useState({row: 0, column: 0});
@@ -98,7 +98,7 @@ export default function Login (){
 
     function renderRow(Data, index){
         return(
-            <div style={{marginTop: "15px"}}>
+            <div key={index} style={{marginTop: "15px"}}>
                 <RadioGroup key={index} onChange={handleChangeRadio} horizontal>
                     {Data.map(renderRadio)}
                 </RadioGroup>
