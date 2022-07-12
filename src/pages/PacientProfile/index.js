@@ -37,7 +37,7 @@ export default function PacientProfile() {
         const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
         
         async function LoadPacient() {
-            await axios.post(`${URL}/pacient/consultPacient/${locationState.id}`, { headers: {Authorization: AuthStr} })
+            await axios.post(`${URL}/pacient/consultPacient/${locationState.id}`, {}, { headers: {Authorization: AuthStr} })
             .then(res => {
                 //console.log(res.data);
                 setPacientData(res.data.pacient);

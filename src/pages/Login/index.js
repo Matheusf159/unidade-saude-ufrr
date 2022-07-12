@@ -22,7 +22,7 @@ export default function Login (){
     const [radioOpts, setRadioOpts] = useState([
         [{name: "Dentista", value: "Dentista-0", checked: true}, {name: "Enfermeiro(a)", value: "Enfermeiro(a)-0", checked: false}],
         [{name: "fisioterapeuta", value: "fisioterapeuta-1", checked: false}, {name: "Médico(a)", value: "Médico(a)-1", checked: false}],
-        [{name: "psicólogo(a)", value: "psicólogo-2", checked: false}]
+        [{name: "psicólogo(a)", value: "psicólogo(a)-2", checked: false}]
     ]);
 
     const [selectedRadio, setSelectedRadio] = useState({row: 0, column: 0});

@@ -34,9 +34,9 @@ export default function UserProfile() {
     useEffect(() => {
         //remove o " no início e no fim de token 
         const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
-        
-        async function LoadPacient() {
-            await axios.post(`${URL}/user/consultUser/${locationState.id}`, { headers: {Authorization: AuthStr} })
+
+        async function LoadPacient() { 
+            await axios.post(`${URL}/user/consultUser/${locationState.id}`, {}, { headers: {Authorization: AuthStr} })
             .then(res => {
                 //console.log(res.data);
                 setUserData(res.data);

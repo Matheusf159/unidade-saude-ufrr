@@ -82,7 +82,7 @@ export default function SignUpPatient() {
 
     return (
         <div>
-            <Navbar title="CADASTRO" />
+            <Navbar title={newPacient===true?"CADASTRO":"ATUALIZAR"} />
 
             <div  className={styles.wraper}>
                 <div className={styles.content}>
