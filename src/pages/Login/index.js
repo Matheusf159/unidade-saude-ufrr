@@ -11,19 +11,18 @@ import logoUfrr from "../../assets/Images/logoUfrr.png";
 import styles from "./login.module.css";
 
 const URL = process.env.REACT_APP_URL;
-
 export default function Login (){
     
-    const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentist' };
+    const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentista' };
 
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState(initialState);
 
     const [radioOpts, setRadioOpts] = useState([
-        [{name: "Dentista", value: "Dentist-0", checked: true}, {name: "Enfermeiro(a)", value: "Nurse-0", checked: false}],
-        [{name: "fisioterapeuta", value: "physiotherapist-1", checked: false}, {name: "Médico(a)", value: "Doctor-1", checked: false}],
-        [{name: "psicólogo(a)", value: "psychologist-2", checked: false}]
+        [{name: "Dentista", value: "Dentista-0", checked: true}, {name: "Enfermeiro(a)", value: "Enfermeiro(a)-0", checked: false}],
+        [{name: "fisioterapeuta", value: "Fisioterapeuta-1", checked: false}, {name: "Médico(a)", value: "Médico(a)-1", checked: false}],
+        [{name: "psicólogo(a)", value: "Psicólogo(a)-2", checked: false}]
     ]);
 
     const [selectedRadio, setSelectedRadio] = useState({row: 0, column: 0});
@@ -55,7 +54,7 @@ export default function Login (){
 		.catch(function (error) {
             //create ui msg box
 			console.log(error);
-		})
+		}) 
     }
 
     async function createUser(){
@@ -63,6 +62,7 @@ export default function Login (){
             {name: formData.name, userName: formData.userName, password: formData.password, type: formData.type}
         ).then(res => {
             //create ui msg box
+            switchMode();
             console.log(res.data.message);
             
 		})
@@ -98,7 +98,7 @@ export default function Login (){
 
     function renderRow(Data, index){
         return(
-            <div style={{marginTop: "15px"}}>
+            <div key={index} style={{marginTop: "15px"}}>
                 <RadioGroup key={index} onChange={handleChangeRadio} horizontal>
                     {Data.map(renderRadio)}
                 </RadioGroup>
@@ -118,7 +118,7 @@ export default function Login (){
         <div className={styles.body}>
         <Container component="main" maxWidth="xs">
             <Paper className={styles.paper} elevation={3}>
-                <img src={logoUfrr} alt="logoEmbrapa" height="60" />
+                <img src={logoUfrr} alt="logoUfrr" height="60" />
                 <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
                 <form className={styles.form} onSubmit={handleSubmit}>
                         { isSignup && (

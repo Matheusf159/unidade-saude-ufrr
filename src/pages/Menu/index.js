@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../components/Header'
+import Navbar from '../../components/Navbar/Navbar'
 import { Link } from "react-router-dom"
 
 
@@ -17,74 +17,52 @@ import styles from './menu.module.css'
 export default function Menu() {
     return (
         <div>
-            <Header title="MENU" /> 
+            <Navbar title="MENU" />
 
             <div  className={styles.wraper}>
                 <div className={styles.content}>
                     <div className={styles.line}>
                         <Link to="/signupPatient" className={styles.btnMenu} >
-                            <button>
+                            <button className={styles.button}>
                                 <MdGroupAdd size={50} />
                                 Cadastrar Paciente
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
+                        <Link to="/pacientSearch" className={styles.btnMenu} >
+                            <button className={styles.button}>
                                 <MdPersonSearch size={50} />
                                 Buscar Paciente
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
+                        <Link to="/users" className={styles.btnMenu} >
+                            <button className={styles.button}>
                                 <MdGroups size={50} />
-                                Funcionários
+                                Usuários
                             </button>
                         </Link>
-                    </div>
+                    </div> 
                     
                     <div className={styles.line}>
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
+                        <Link to="/reportGraphic" className={styles.btnMenu} >
+                            <button className={styles.button}>
                                 <MdOutlineAddchart size={50} />
                                 Relatório
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
-                                <MdPersonAdd size={50} />
-                                Cadastrar Funcionário
-                            </button>
-                        </Link>
-
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
-                                <MdOutlineCalendarToday size={50} />
-                                Agendar Consulta
-                            </button>
-                        </Link>
-                    </div>
-
-                    <div className={styles.line}>
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
+                        <Link to="/registerUser" className={styles.btnMenu} >
+                            <button className={styles.button}>
                                 <MdPersonAdd size={50} />
                                 Cadastrar Usuário
                             </button>
                         </Link>
 
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
-                                <MdOutlineAddchart size={50} />
-                                Relatório
-                            </button>
-                        </Link>
-                        <Link to="/schedule" className={styles.btnMenu} >
-                            <button>
+                        <Link to="/pacientList" className={styles.btnMenu} >
+                            <button className={styles.button}>
                                 <MdOutlineCalendarToday size={50} />
-                                Agendar Consulta
+                                Consultas do Dia
                             </button>
                         </Link>
                     </div>

@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    border: 1px solid black;
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+ 

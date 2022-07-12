@@ -15,7 +15,7 @@
     border-radius: 8px;
     border: 2px solid black;
 
-    height: 500px;
+    height: 300px;
 }
 
 .line {
@@ -26,7 +26,7 @@
 
 
 
-button {
+.button {
     width: 136px;
     height: 96px;
     display: flex;
