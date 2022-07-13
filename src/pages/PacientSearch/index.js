@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import List from '../../components/List/List';
+import Notifications from "../../components/Notifications/Notifications";
 
 import styles from './pacientSearch.module.css';
 
@@ -13,6 +14,10 @@ export default function PacientSearch() {
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState('');
     const [filterInput, setFilterInput] = useState('');
+
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         //remove o " no início e no fim de token 
@@ -35,13 +40,21 @@ export default function PacientSearch() {
                 }
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                setMsg("Não foi possível se conectar ao servidor");
+                activateNotification('error');
             })
         }
         LoadUsers();
         
     }, []);
+
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 3000);
+    }
 
     return(
         <div>
@@ -58,6 +71,8 @@ export default function PacientSearch() {
                 <List header={header} items={items} check={false} filter={filter} />
             
             </div>
+
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     );
 };

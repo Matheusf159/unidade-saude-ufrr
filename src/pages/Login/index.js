@@ -5,6 +5,7 @@ import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import axios from 'axios';
 
 import Input from "../../components/Input/Input";
+import Notifications from "../../components/Notifications/Notifications";
 
 import logoUfrr from "../../assets/Images/logoUfrr.png";
 
@@ -26,6 +27,10 @@ export default function Login (){
     ]);
 
     const [selectedRadio, setSelectedRadio] = useState({row: 0, column: 0});
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
+
     const history = useNavigate();
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -52,8 +57,13 @@ export default function Login (){
             history('/menu');
 		})
 		.catch(function (error) {
-            //create ui msg box
-			console.log(error);
+            if(error.response.data!==undefined){
+                setMsg(error.response.data.message);
+            }
+            else {
+                setMsg("Não foi possível se conectar ao servidor");
+            }
+            activateNotification('error');
 		}) 
     }
 
@@ -61,14 +71,19 @@ export default function Login (){
         await axios.post(`${URL}/user/createUser`, 
             {name: formData.name, userName: formData.userName, password: formData.password, type: formData.type}
         ).then(res => {
-            //create ui msg box
             switchMode();
-            console.log(res.data.message);
+            setMsg(res.data.message);
+            activateNotification('success');
             
 		})
 		.catch(function (error) {
-            //create ui msg box
-			console.log(error);
+            if(error.response.data!==undefined){
+                setMsg(error.response.data.message);
+            }
+            else {
+                setMsg("Não foi possível se conectar ao servidor");
+            }
+            activateNotification('error');
 		})
     }
 
@@ -114,39 +129,49 @@ export default function Login (){
         );
     };
 
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 3000);
+    }
+
     return(
         <div className={styles.body}>
-        <Container component="main" maxWidth="xs">
-            <Paper className={styles.paper} elevation={3}>
-                <img src={logoUfrr} alt="logoUfrr" height="60" />
-                <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
-                <form className={styles.form} onSubmit={handleSubmit}>
-                        { isSignup && (
-                            <>
-                                <Input name="name" label="nome" handleChange={handleChange} autoFocus />
-                                {radioOpts.map(renderRow)}
-                            </>
-                        )}
-                    <Grid container rowSpacing={2} style={{marginTop: "5px"}}>
-                        <Input name="userName" label="nome de usuário" handleChange={handleChange} type="text" />
-                        <Input name="password" label="Senha" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>       
-                        { isSignup && <Input name="confirmPassword" label="Repita a senha" handleChange={handleChange} type="password" />}
-                    </Grid>
-
-                    <Button type="submit" fullWidth variant="contained" color="primary" className={styles.submitButton} style={{margin: "20px 0 0 0"}}>
-                        {isSignup ? 'Sign Up' : 'Sign In'}
-                    </Button>
-
-                    <Grid container justifyContent="flex-end">
-                        <Grid item>
-                            <Button onClick={switchMode}>
-                                { isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
-                            </Button>
+            <Container component="main" maxWidth="xs">
+                <Paper className={styles.paper} elevation={3}>
+                    <img src={logoUfrr} alt="logoUfrr" height="60" />
+                    <Typography variant="h5">{isSignup ? 'Cadastro' : 'Login'}</Typography>
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                            { isSignup && (
+                                <>
+                                    <Input name="name" label="nome" handleChange={handleChange} autoFocus />
+                                    {radioOpts.map(renderRow)}
+                                </>
+                            )}
+                        <Grid container rowSpacing={2} style={{marginTop: "5px"}}>
+                            <Input name="userName" label="nome de usuário" handleChange={handleChange} type="text" />
+                            <Input name="password" label="Senha" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>       
+                            { isSignup && <Input name="confirmPassword" label="Repita a senha" handleChange={handleChange} type="password" />}
                         </Grid>
-                    </Grid>
-                </form>
-            </Paper>
-        </Container>
+
+                        <Button type="submit" fullWidth variant="contained" color="primary" className={styles.submitButton} style={{margin: "20px 0 0 0"}}>
+                            {isSignup ? 'Cadastrar' : 'Entrar'}
+                        </Button>
+
+                        <Grid container justifyContent="flex-end">
+                            <Grid item>
+                                <Button onClick={switchMode}>
+                                    { isSignup ? 'Já possui cadastro? Logar' : "Não possui uma conta? Cadastre-se"}
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </Paper>
+            </Container>
+
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Notifications from "../../components/Notifications/Notifications";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from './register.module.css';
 
@@ -18,6 +19,10 @@ export default function RegisterUser(){
     const [changePassword, setChangePassword] = useState(false);
 
     const history = useNavigate();
+
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         if(location.state) {
@@ -38,12 +43,17 @@ export default function RegisterUser(){
                 },
                 { headers: {Authorization: AuthStr} }
             ).then(res => {
-                //create ui msg box
-                history('/menu'); 
+                setMsg(res.data.message);
+                activateNotification('success');
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                if(error.response.data!==undefined){
+                    setMsg(error.response.data.message);
+                }
+                else {
+                    setMsg("Não foi possível se conectar ao servidor");
+                }
+                activateNotification('error');
             })
         }
         else {
@@ -61,12 +71,17 @@ export default function RegisterUser(){
                 ],
                 {headers: {Authorization: AuthStr}}
             ).then(res => {
-                //create ui msg box
-                history('/menu');
+                setMsg(res.data.message);
+                activateNotification('success');
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                if(error.response.data!==undefined){
+                    setMsg(error.response.data.message);
+                }
+                else {
+                    setMsg("Não foi possível se conectar ao servidor");
+                }
+                activateNotification('error');
             })
         }
     }
@@ -77,6 +92,17 @@ export default function RegisterUser(){
 
     const handleChangePassword = () => {
         setChangePassword(!changePassword);
+    }
+
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+            if(type==='success'){
+                history('/menu');
+            }
+        }, 2000);
     }
 
     return(
@@ -147,7 +173,8 @@ export default function RegisterUser(){
                     </form>
                 </div>
             </div>
-
+            
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     );
 }

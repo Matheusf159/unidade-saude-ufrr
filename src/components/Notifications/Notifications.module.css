@@ -1,0 +1,13 @@
+.container {
+    color: white;
+    position: absolute;
+    right: 16px;
+    z-index: 999;
+    transition: top 0.5s ease;
+}
+
+.subContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

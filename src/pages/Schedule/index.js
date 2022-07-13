@@ -5,6 +5,7 @@ import Select from "react-select";
 import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker';
 import Navbar from "../../components/Navbar/Navbar";
+import Notifications from "../../components/Notifications/Notifications";
 
 import styles from './schedule.module.css'
 
@@ -16,10 +17,6 @@ export default function Schedules() {
 
     const [selectedDoctor, setSelectedDoctor] = useState();
     const [doctorList, setDoctorList] = useState([]);
-
-    //userId: {type: String, required: true},
-    //pacientId: {type: String, required: true},
-    //scheduleDate
 
     const initialState = { 
         doctorName: '', type: '', scheduleDate: new Date(),
@@ -34,6 +31,10 @@ export default function Schedules() {
     });
 
     const history = useNavigate();
+
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         if(location.state) {
@@ -90,15 +91,25 @@ export default function Schedules() {
                     },
                     { headers: {Authorization: AuthStr} }
                 ).then(res => {
-                    //create ui msg box
-                    history('/menu'); 
+                    setMsg(res.data.message);
+                    activateNotification('success');
                 })
                 .catch(function (error) {
-                    //create ui msg box
-                    console.log(error);
+                    setMsg("Não foi possível se conectar ao servidor");
                 })
         }
     };
+
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+            if(type==='success'){
+                history('/menu');
+            }
+        }, 2000);
+    }
 
     return (
         <div>
@@ -181,6 +192,8 @@ export default function Schedules() {
                     </form>
                 </div>
             </div>
+
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     )
 }
