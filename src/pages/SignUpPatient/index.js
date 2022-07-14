@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Notifications from "../../components/Notifications/Notifications";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
@@ -19,6 +20,10 @@ export default function SignUpPatient() {
     const [newPacient, setNewPacient] = useState(true);
 
     const history = useNavigate();
+
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         if(location.state) {
@@ -44,12 +49,16 @@ export default function SignUpPatient() {
                 },
                 { headers: {Authorization: AuthStr} }
             ).then(res => {
-                //create ui msg box
-                history('/schedule'); 
+                setMsg(res.data.message);
+                activateNotification('success');
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                if(error.response.data!==undefined){
+                    setMsg(error.response.data.message);
+                }
+                else {
+                    setMsg("Não foi possível se conectar ao servidor");
+                }
             })
         }
         else {
@@ -79,6 +88,17 @@ export default function SignUpPatient() {
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+            if(type==='success'){
+                history('/schedule'); 
+            }
+        }, 2000);
+    }
 
     return (
         <div>
@@ -212,6 +232,8 @@ export default function SignUpPatient() {
                     </form>
                 </div>
             </div>
+
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     )
 }

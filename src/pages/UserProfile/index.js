@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from '../../components/Navbar/Navbar'
-
+import Notifications from "../../components/Notifications/Notifications";
 
 import { MdAccountCircle } from 'react-icons/md'
 
@@ -24,6 +24,10 @@ export default function UserProfile() {
 
     const [userData, setUserData] = useState(initialState);
 
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
+
     useEffect(() => {
         if(location.state) {
             setLocationState(location.state);
@@ -38,12 +42,11 @@ export default function UserProfile() {
         async function LoadPacient() { 
             await axios.post(`${URL}/user/consultUser/${locationState.id}`, {}, { headers: {Authorization: AuthStr} })
             .then(res => {
-                //console.log(res.data);
                 setUserData(res.data);
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                setMsg("Não foi possível se conectar ao servidor");
+                activateNotification('error');
             })
         }
         if(locationState.id!==''){
@@ -51,6 +54,14 @@ export default function UserProfile() {
         }
 
     }, [locationState]);
+
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 3000);
+    }
 
     return (
         <div>
@@ -83,6 +94,8 @@ export default function UserProfile() {
                     </div>
                 </div>
             </div>
+
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     )
 }
