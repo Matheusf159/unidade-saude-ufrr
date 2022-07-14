@@ -78,7 +78,7 @@ export default function UserProfile() {
 
                     <div className={styles.data}>
                         <div className={styles.datas}>
-                           <p>Tipo: {userData.type} Status: {userData.type==="adm"? "Administrador" : userData.status}</p>
+                           <p><strong>Tipo:</strong> {userData.type} <strong>Status:</strong> {userData.type==="adm"? "Administrador" : userData.status}</p>
                         </div>
                     </div>
                 </div>

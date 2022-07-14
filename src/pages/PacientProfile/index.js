@@ -82,11 +82,20 @@ export default function PacientProfile() {
 
                     <div className={styles.data}>
                         <div className={styles.datas}>
-                           <p>Data de Nascimento: {pacientData.birthDate} Sexo: {pacientData.sex} Cor: {pacientData.skinTone} Naturalidade: {pacientData.naturalness} Estado Civil: {pacientData.maritalState} </p>
-                           <p>Profissão: {pacientData.profession} Escolaridade: {pacientData.levelEducation} Telefone: {pacientData.cellPhone} </p>
-                           <p>Endereço: {pacientData.address} bairro: {pacientData.district} Município: {pacientData.county} UF: {pacientData.uf}</p>
                            <p>
-                                Origem: {pacientData.origin} 
+                                <strong>Data de Nascimento:</strong> {pacientData.birthDate} <strong>Sexo:</strong> {pacientData.sex} <strong>Cor:</strong> {pacientData.skinTone} <strong>Naturalidade:</strong> {pacientData.naturalness} <strong>Estado Civil:</strong> {pacientData.maritalState}
+                            </p>
+
+                            <p>
+                                <strong>Profissão:</strong> {pacientData.profession} <strong>Escolaridade:</strong> {pacientData.levelEducation} <strong>Telefone:</strong> {pacientData.cellPhone} 
+                            </p>
+
+                            <p>
+                                <strong>Endereço:</strong> {pacientData.address} <strong>bairro:</strong> {pacientData.district} <strong>Município:</strong> {pacientData.county} <strong>UF:</strong> {pacientData.uf}
+                            </p>
+
+                            <p>
+                                <strong>Origem:</strong> {pacientData.origin} 
                                 {
                                     pacientData.origin==="Servidor"
                                     ? <span>Nome do servidor: {pacientData.namePublicEmploye}</span>
