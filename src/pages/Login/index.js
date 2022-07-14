@@ -43,6 +43,9 @@ export default function Login (){
             if(formData.password === formData.confirmPassword){
                 createUser();
             }
+            else {
+                alert("Sehnas não coincidem")
+            }
         } else{
             signIn();
         }

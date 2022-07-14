@@ -59,7 +59,7 @@ export default function Schedules() {
 
                     setDoctorList(tempDoctorList);
                     setSelectedDoctor(tempDoctorList[0]);
-                    setFormData({ ...formData, ["doctorName"]: tempDoctorList[0].label, ["type"]: tempDoctorList[0].type });
+                    setFormData({ ...formData, "doctorName": tempDoctorList[0].label, "type": tempDoctorList[0].type });
                 }
 
             })
@@ -75,12 +75,12 @@ export default function Schedules() {
     function handleSelect(selected_doctor) {
         
         setSelectedDoctor(selected_doctor);
-        setFormData({ ...formData, ["type"]: selected_doctor.type });
+        setFormData({ ...formData, "type": selected_doctor.type });
     }
 
     async function registerSchedule(e) {
         e.preventDefault();
-        let date = `${formData.scheduleDate.getDate()}/${formData.scheduleDate.getMonth()+1}/${formData.scheduleDate.getFullYear()}`;
+        let date = `${formData.scheduleDate.getDate()}/${formData.scheduleDate.getMonth()+1<10?"0"+formData.scheduleDate.getMonth()+1:formData.scheduleDate.getMonth()+1}/${formData.scheduleDate.getFullYear()}`;
         
         const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
         if(pacientState._id!==''){
@@ -141,7 +141,7 @@ export default function Schedules() {
                         <div className={styles.thirdLine}>
                             <label className="doctorLabel">
                                 <div className={styles.doctorContainer}>
-                                    <span>Médico:</span>
+                                    <span>Profissional:</span>
                                     <Select
                                         className={styles.doctorInput}
                                         options={doctorList}
@@ -180,7 +180,7 @@ export default function Schedules() {
                                     value={formData.time}
                                     required
                                     className={styles.timeInput}
-                                    onChange={(value)=>setFormData({ ...formData, ["time"]: value })}
+                                    onChange={(value)=>setFormData({ ...formData, "time": value })}
                                 />
     
                             </label>

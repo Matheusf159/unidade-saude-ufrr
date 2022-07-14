@@ -42,7 +42,7 @@ import "./List.module.css";
                     }}>
                     {
                         header.length === ColumnIndex+1 && check===true
-                        ? <Checkbox onClick={handlePresence} name={`${rowIndexTemp}`}/>
+                        ? <Checkbox onClick={handlePresence} checked={Data} name={`${rowIndexTemp}`}/>
                         : header.length === ColumnIndex+1 && select===true && Data!=="adm"
                         ? <select style={{marginLeft: ColumnIndex!==1? "0":"10px"}} name={`${rowIndexTemp}`} value={Data} onChange={handleStatus}>
                             <option value={"approved"}>Aprovado</option>
