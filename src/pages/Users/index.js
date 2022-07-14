@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import List from '../../components/List/List';
-
+import Notifications from "../../components/Notifications/Notifications";
 import styles from './users.module.css'
 
 const URL = process.env.REACT_APP_URL;
@@ -13,6 +13,10 @@ export default function Users(){
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState('');
     const [filterInput, setFilterInput] = useState('');
+
+    const [showNotification, setShowNotification] = useState(false);
+    const [typeNotification, setTypeNotification] = useState('error');
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         //remove o " no início e no fim de token 
@@ -37,8 +41,12 @@ export default function Users(){
                 }
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                if(error.response.data!==undefined){
+                    setMsg(error.response.data.message);
+                }
+                else {
+                    setMsg("Não foi possível se conectar ao servidor");
+                }
             })
         }
         LoadUsers();
@@ -56,15 +64,27 @@ export default function Users(){
         await axios.patch(`${URL}/user/updateUser/${newItemsList[e.target.name][0]}`, 
             [{propName: "status", value: e.target.value}], {headers: {Authorization: AuthStr}}
         ).then(res => {
-            //create ui msg box
-            console.log(res.data);
+            setMsg(res.data.message);
+            activateNotification('success');
         })
         .catch(function (error) {
-            //create ui msg box
-            console.log(error);
+            if(error.response.data!==undefined){
+                setMsg(error.response.data.message);
+            }
+            else {
+                setMsg("Não foi possível se conectar ao servidor");
+            }
         })
         
         setItems(newItemsList);
+    }
+
+    function activateNotification(type){
+        setTypeNotification(type);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 3000);
     }
 
     return( 
@@ -81,7 +101,8 @@ export default function Users(){
                 <List header={header} items={items} select={true} handleStatus={handleStatus} filter={filter}/>
 
             </div>
-
+            
+            <Notifications showNotification={showNotification} typeNotification={typeNotification} msg={msg}/>
         </div>
     );
 };
