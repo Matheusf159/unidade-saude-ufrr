@@ -154,7 +154,7 @@ export default function Login (){
                                 </>
                             )}
                         <Grid container rowSpacing={2} style={{marginTop: "5px"}}>
-                            <Input name="userName" label="nome de usuário" handleChange={handleChange} type="text" />
+                            <Input name="userName" label="Nome de usuário" handleChange={handleChange} type="text" />
                             <Input name="password" label="Senha" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>       
                             { isSignup && <Input name="confirmPassword" label="Repita a senha" handleChange={handleChange} type="password" />}
                         </Grid>

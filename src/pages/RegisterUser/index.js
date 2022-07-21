@@ -115,19 +115,19 @@ export default function RegisterUser(){
                     <form onSubmit={registerUser}> 
                         <div className={styles.firstLine}>
                             <label className="nameLabel">
-                                Nome:
+                                Nome: *
                                 <input type="text" className={styles.nameInput} required value={formData.name} name="name" onChange={handleChange} />
                             </label>
 
                             <label className="registryLabel">
-                                Nome de Usuário:
+                                Nome de Usuário: *
                                 <input type="text" className={styles.registyInput} required value={formData.userName} name="userName" onChange={handleChange} />
                             </label>
                         </div>
 
                         <div className={styles.secondLine}>
                             <label className="passwordLabel">
-                                Senha:
+                                Senha: *
                                 {
                                     changePassword===true || newUser===true
                                     ? <input type="password" className={styles.passwordInput} required value={formData.password} name="password" onChange={handleChange} />
@@ -136,7 +136,7 @@ export default function RegisterUser(){
                             </label>
                             
                             <label className="bondLabel">
-                                Tipo:
+                                Tipo: *
                                 <select className={styles.selectBox} name="type" value={formData.type} onChange={handleChange}>
                                     <option value={"adm"}>Administrador</option>
                                     <option value={"Dentista"}>Dentista</option>
@@ -151,7 +151,7 @@ export default function RegisterUser(){
                         <div className={styles.thirdLine}>
                             <label className="passwordLabel" style={{display: newUser===true?"none":""}}>
                                 <div className={styles.checkBoxContainer}>
-                                    <span>Mudar Senha:</span>
+                                    <span>Mudar Senha: *</span>
                                     <input className={styles.checkBox} type="checkbox" checked={changePassword} onChange={handleChangePassword} />
                                 </div>
                             </label>

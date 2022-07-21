@@ -80,7 +80,7 @@ export default function Navbar({title}){
                                 }} 
                                 variant="h6">{user.name}
                             </Typography>
-                            <Button variant="contained" color="error" onClick={logout}>Logout</Button>
+                            <Button variant="contained" color="error" onClick={logout}>SAIR</Button>
                         </div>
                     ):(
                         <></>

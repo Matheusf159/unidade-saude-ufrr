@@ -119,7 +119,7 @@ export default function PacientProfile() {
                                 <strong>Origem:</strong> {pacientData.origin} 
                                 {
                                     pacientData.origin==="Servidor"
-                                    ? <span>Nome do servidor: {pacientData.namePublicEmploye}</span>
+                                    ? <span style={{marginLeft: 12}}><strong>Nome do servidor:</strong> {pacientData.namePublicEmploye}</span>
                                     : pacientData.origin==="Dependente" 
                                     ? <span>Nome do responsável: {pacientData.nameResponsible}</span>
                                     : <></>

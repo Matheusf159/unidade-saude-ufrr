@@ -95,7 +95,7 @@ export default function SignUpPatient() {
         setTimeout(() => {
             setShowNotification(false);
             if(type==='success'){
-                history('/schedule'); 
+                history('/menu'); 
             }
         }, 2000);
     }
@@ -109,12 +109,12 @@ export default function SignUpPatient() {
                     <form onSubmit={registerPacient}>
                         <div className={styles.firstLine}>
                             <label className="nameLabel">
-                                Nome:
+                                Nome: *
                                 <input type="text" className={styles.nameInput} required value={formData.name} name="name" onChange={handleChange} />
                             </label>
                             
                             <label className="sexLabel">
-                                sexo:
+                                Sexo: *
                                 <select className={styles.sexSelect} name="sex" required value={formData.sex} onChange={handleChange}>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
@@ -124,7 +124,7 @@ export default function SignUpPatient() {
                             </label>
 
                             <label className="colorLabel">
-                                Cor:
+                                Cor: *
                                 <select className={styles.sexSelect} name="skinTone" value={formData.skinTone} onChange={handleChange} >
                                     <option value="Amarelo">Amarelo</option>
                                     <option value="Branco">Branco</option>
@@ -137,17 +137,17 @@ export default function SignUpPatient() {
 
                         <div className={styles.secondLine}>
                             <label className="birthDateLabel">
-                                Data de nascimento:
+                                Data de nascimento: *
                                 <input type="text" className={styles.birthDateInput} required value={formData.birthDate} name="birthDate" onChange={handleChange} />
                             </label>
                             
                             <label className="naturalnessLabel">
-                                Naturalidade:
+                                Naturalidade: *
                                 <input type="text" className={styles.naturalnessInput} required value={formData.naturalness} name="naturalness" onChange={handleChange} />
                             </label>
 
                             <label className="maritalStatusLabel">
-                                Estado Civil:
+                                Estado Civil: *
                                 <select className={styles.sexSelect} name="maritalState" value={formData.maritalState} onChange={handleChange} >
                                     <option value="Solteiro">Solteiro</option>
                                     <option value="Casado">Casado</option>
@@ -162,46 +162,46 @@ export default function SignUpPatient() {
 
                         <div className={styles.thirdLine}>
                             <label className="professionLabel">
-                                Profissão:
+                                Profissão: *
                                 <input type="text" className={styles.professionInput} required value={formData.profession} name="profession" onChange={handleChange} />
                             </label>
                             
                             <label className="schoolingLabel">
-                                Escolaridade:
+                                Escolaridade: *
                                 <input type="text" className={styles.schoolingInput} required value={formData.levelEducation} name="levelEducation" onChange={handleChange} />
                             </label>
 
                             <label className="PhoneLabel">
-                                Telefone:
+                                Telefone: *
                                 <input type="text" className={styles.phoneInput} required value={formData.cellPhone} name="cellPhone" onChange={handleChange} />
                             </label>
                         </div>
 
                         <div className={styles.fourthLine}>
                             <label className="addressLabel">
-                                Endereço:
+                                Endereço: *
                                 <input type="text" className={styles.addressInput} required value={formData.address} name="address" onChange={handleChange} />
                             </label>
 
                             <label className="districtLabel">
-                                Bairro:
+                                Bairro: *
                                 <input type="text" className={styles.districtInput} required value={formData.district} name="district" onChange={handleChange} />
                             </label>
 
                             <label className="cityLabel">
-                                Município:
+                                Município: *
                                 <input type="text" className={styles.cityInput} required value={formData.county} name="county" onChange={handleChange} />
                             </label>
 
                             <label className="ufLabel">
-                                UF:
+                                UF: *
                                 <input type="text" className={styles.ufInput} required value={formData.uf} name="uf" onChange={handleChange} />
                             </label>
                         </div>
 
                         <div className={styles.fifthLine}>
                             <label className="orignLabel">
-                                Origem:
+                                Origem: *
                                 <select className={styles.orignSelect} name="origin" value={formData.origin} onChange={handleChange}>
                                     <option value="" disabled hidden></option>
                                     <option value="Servidor">Servidor</option>
@@ -213,14 +213,14 @@ export default function SignUpPatient() {
                             
                             <div style={{display: formData.origin === "Servidor" ? "" : "none"}}>
                                 <label className="nameOrignLabel">
-                                    Nome do servidor:
+                                    Nome do Servidor(a): *
                                     <input type="text" className={styles.nameOrignInput} value={formData.namePublicEmploye} name="namePublicEmploye" onChange={handleChange} />
                                 </label>
                             </div>
 
                             <div style={{display: formData.origin === "Dependente" ? "" : "none"}}>
                                 <label className="nameOrignLabel">
-                                    Nome do responsável:
+                                    Nome do Responsável: *
                                     <input type="text" className={styles.nameOrignInput} value={formData.nameResponsible} name="nameResponsible" onChange={handleChange} />
                                 </label>
                             </div>
