@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from '../../components/Navbar/Navbar'
 import Notifications from "../../components/Notifications/Notifications";
+import decode from 'jwt-decode';
 
 import { MdAccountCircle } from 'react-icons/md'
 
@@ -13,6 +14,7 @@ export default function PacientProfile() {
 
     const location =  useLocation();
     const token = localStorage.getItem('TokenHealthUnityUFRR');
+    const decodedToken = decode(token);
     const initialState = { 
         id: '', name: '', sex: '', skinTone: '', birthDate: '', naturalness: '', maritalState: '', 
         profession: '', levelEducation: '', cellPhone: '', address: '', district: '', county: '',
@@ -81,14 +83,22 @@ export default function PacientProfile() {
                             </div>
                         </div>
 
-                        <div className={styles.right}>
-                            <Link to="/signupPatient" state={{pacient:pacientData}}>
-                                <button className={styles.button}>EDITAR</button>
-                            </Link>
-                            <Link to="/schedule" state={{pacient:pacientData}}>
-                                <button className={styles.button}>AGENDAR</button>
-                            </Link>
-                        </div>
+                        {decodedToken.type=== "adm"
+                            ?
+                            <div className={styles.right}>
+                                <Link to="/signupPatient" state={{pacient:pacientData}}>
+                                    <button className={styles.button}>EDITAR</button>
+                                </Link>
+                                <Link to="/schedule" state={{pacient:pacientData}}>
+                                    <button className={styles.button}>AGENDAR</button>
+                                </Link>
+                            </div>
+                            :
+                            <div className={styles.right}>
+                                <button className={styles.buttonOff} disabled></button>
+                                <button className={styles.buttonOff} disabled></button>
+                            </div>
+                        }
                     </div>
 
                     <div className={styles.data}>

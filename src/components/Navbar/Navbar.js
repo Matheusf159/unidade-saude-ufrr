@@ -51,12 +51,19 @@ export default function Navbar({title}){
                 color="inherit"
                 >
                 
-                <img className={styles.image} style={{marginLeft: "15px"}} src={logoUfrr} alt="logoEmbrapa" height="77" />
+                {user 
+                    ? 
+                    <Link to="/Menu">
+                        <img className={styles.image} style={{marginLeft: "15px"}} src={logoUfrr} alt="logoEmbrapa" height="77" />
+                    </Link>
+                    :
+                    <img className={styles.image} style={{marginLeft: "15px"}} src={logoUfrr} alt="logoEmbrapa" height="77" />
+                }
                 
                 {user ? (
                     <Typography component={Link} to="/menu" className={styles.heading} style={{textDecoration: "none", color: "rgba(255,255,255,255)"}}  variant="h4">{title}</Typography>
                 ):(
-                    <Typography to="/Menu" className={styles.heading} style={{textDecoration: "none", color: "rgba(255,255,255,255)"}} variant="h4">{title}</Typography>
+                    <Typography className={styles.heading} style={{textDecoration: "none", color: "rgba(255,255,255,255)"}} variant="h4">{title}</Typography>
                 )}
                 
                 <Toolbar className={styles.toolbar} style={{display: "flex", justifyContent: "flex-end", maxWidth: "400px"}}>

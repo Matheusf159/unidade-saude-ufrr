@@ -64,8 +64,8 @@ export default function Schedules() {
 
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                setMsg("Não foi possível se conectar ao servidor");
+                activateNotification('error');
             })
         }
         LoadUsers(doctorList);
@@ -80,7 +80,9 @@ export default function Schedules() {
 
     async function registerSchedule(e) {
         e.preventDefault();
-        let date = `${formData.scheduleDate.getDate()}/${formData.scheduleDate.getMonth()+1<10?"0"+formData.scheduleDate.getMonth()+1:formData.scheduleDate.getMonth()+1}/${formData.scheduleDate.getFullYear()}`;
+        let currentMonth = parseInt(formData.scheduleDate.getMonth())+1;
+        currentMonth = currentMonth<10 ? "0"+currentMonth.toString() : currentMonth.toString();
+        let date = new Date(`${formData.scheduleDate.getFullYear()}-${formData.scheduleDate.getMonth()+1}-${formData.scheduleDate.getDate()}`);
         
         const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
         if(pacientState._id!==''){
@@ -96,6 +98,7 @@ export default function Schedules() {
                 })
                 .catch(function (error) {
                     setMsg("Não foi possível se conectar ao servidor");
+                    activateNotification('error');
                 })
         }
     };

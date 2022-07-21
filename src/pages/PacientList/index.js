@@ -14,7 +14,7 @@ export default function PacientList() {
     const header = decodedToken.type === "adm"?["ID", "Nome", "Profissional responsável", "horário", "Presente"]: ["ID", "Nome", "horário", "Presente"];
     const [items, setItems] = useState([]);
 
-    const currentDate = new Date().toLocaleString().substr(0, 10);
+    let currentDate = new Date();
 
     const [showNotification, setShowNotification] = useState(false);
     const [typeNotification, setTypeNotification] = useState('error');
@@ -27,7 +27,7 @@ export default function PacientList() {
         async function LoadPacients() {
             await axios.post(`${URL}/schedule/getAllSchedulesDay/${decodedToken.id}`, 
                 {
-                    currentDate: currentDate
+                    currentDate: `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
                 }, 
                 { headers: {Authorization: AuthStr} }
             ).then(res => {

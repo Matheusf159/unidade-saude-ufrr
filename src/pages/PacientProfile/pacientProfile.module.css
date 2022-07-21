@@ -72,6 +72,22 @@
     color: #FFFFFF;
 }
 
+.buttonOff {
+    width: 136px; 
+    height: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+
+    color: #FFFFFF;
+}
+
+
 
 .data {
     display: flex;
