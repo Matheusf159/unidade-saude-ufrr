@@ -17,8 +17,8 @@ export default function PacientProfile() {
     const decodedToken = decode(token);
     const initialState = { 
         id: '', name: '', sex: '', skinTone: '', birthDate: '', naturalness: '', maritalState: '', 
-        profession: '', levelEducation: '', cellPhone: '', address: '', district: '', county: '',
-        uf: '', origin: '', namePublicEmploye: '', nameResponsible: ''
+        profession: '', levelEducation: '', phone1: '', phone2: '', whatsApp: '', address: '',
+        district: '', county: '', uf: '', origin: '', namePublicEmploye: '', nameResponsible: ''
     };
 
     const [locationState, setLocationState] = useState({
@@ -108,7 +108,11 @@ export default function PacientProfile() {
                             </p>
 
                             <p>
-                                <strong>Profissão:</strong> {pacientData.profession} <strong>Escolaridade:</strong> {pacientData.levelEducation} <strong>Telefone:</strong> {pacientData.cellPhone} 
+                                <strong>Profissão:</strong> {pacientData.profession} <strong>Escolaridade:</strong> {pacientData.levelEducation} 
+                            </p>
+
+                            <p>
+                                <strong>Telefone 1:</strong> {pacientData.phone1} <strong>Telefone 2:</strong> {pacientData.phone2} <strong>WhatsApp:</strong> {pacientData.whatsApp}
                             </p>
 
                             <p>

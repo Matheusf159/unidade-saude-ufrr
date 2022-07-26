@@ -14,7 +14,7 @@ export default function SignUpPatient() {
     const token = localStorage.getItem('TokenHealthUnityUFRR');
     const initialState = { 
         name: '', sex: 'Masculino', skinTone: 'Amarelo', birthDate: '', naturalness: '', maritalState: 'Solteiro', 
-        profession: '', levelEducation: '', cellPhone: '', address: '', district: '', county: '',
+        profession: '', levelEducation: '', phone1: '', phone2: '', whatsApp: 'Telefone 1', address: '', district: '', county: '',
         uf: '', origin: 'Servidor', namePublicEmploye: '', nameResponsible: ''
     };
     const [formData, setFormData] = useState(initialState);
@@ -44,8 +44,8 @@ export default function SignUpPatient() {
                 {
                     name: formData.name, sex: formData.sex, skinTone: formData.skinTone, birthDate: formData.birthDate,
                     naturalness: formData.naturalness, maritalState: formData.maritalState, profession: formData.profession,
-                    levelEducation: formData.levelEducation, cellPhone: formData.cellPhone, address: formData.address, 
-                    district: formData.district, county: formData.county, uf: formData.uf, origin: formData.origin, 
+                    levelEducation: formData.levelEducation, phone1: formData.phone1, phone2: formData.phone2, whatsApp: formData.whatsApp, 
+                    address: formData.address, district: formData.district, county: formData.county, uf: formData.uf, origin: formData.origin, 
                     namePublicEmploye: formData.namePublicEmploye, nameResponsible: formData.nameResponsible
                 },
                 { headers: {Authorization: AuthStr} }
@@ -69,7 +69,8 @@ export default function SignUpPatient() {
                     {propName: "skinTone", value: formData.skinTone}, {propName: "birthDate", value: formData.birthDate},
                     {propName: "naturalness", value: formData.naturalness}, {propName: "maritalState", value: formData.maritalState},
                     {propName: "profession", value: formData.profession}, {propName: "levelEducation", value: formData.levelEducation},
-                    {propName: "cellPhone", value: formData.cellPhone}, {propName: "address", value: formData.address},
+                    {propName: "phone1", value: formData.phone1}, {propName: "phone2", value: formData.phone2},
+                    {propName: "whatsApp", value: formData.whatsApp}, {propName: "address", value: formData.address},
                     {propName: "district", value: formData.district}, {propName: "county", value: formData.county},
                     {propName: "uf", value: formData.uf}, {propName: "origin", value: formData.origin},
                     {propName: "namePublicEmploye", value: formData.namePublicEmploye}, {propName: "nameResponsible", value: formData.nameResponsible},
@@ -191,9 +192,9 @@ export default function SignUpPatient() {
                                 <IMaskInput
                                     mask="(00) 00000-0000"
                                     className={styles.phoneInput}
-                                    name="cellPhone"
+                                    name="phone1"
                                     required
-                                    value={formData.cellPhone}
+                                    value={formData.phone1}
                                     onChange={handleChange}
                                 />
                             </label>
@@ -203,15 +204,15 @@ export default function SignUpPatient() {
                                 <IMaskInput
                                     mask="(00) 00000-0000"
                                     className={styles.phoneInput}
-                                    name="cellPhone"
-                                    value={formData.cellPhone}
+                                    name="phone2"
+                                    value={formData.phone2}
                                     onChange={handleChange}
                                 />
                             </label>
 
                             <label className="whatsLabel">
                                 WhatsApp:
-                                <select className={styles.whatsSelect} name="whats" value={formData.whats} onChange={handleChange}>
+                                <select className={styles.whatsSelect} name="whatsApp" value={formData.whatsApp} onChange={handleChange}>
                                     <option value="Telefone 1">Telefone 1</option>
                                     <option value="Telefone 2">Telefone 2</option>
                                 </select>

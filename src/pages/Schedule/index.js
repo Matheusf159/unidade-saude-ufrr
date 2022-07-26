@@ -126,13 +126,23 @@ export default function Schedules() {
                                 Nome:
                                 <input type="text" value={pacientState.name} name="name" disabled required className={styles.nameInput} />
                             </label>
-
                         </div>
 
                         <div className={styles.secondLine}>
                             <label className="PhoneLabel">
-                                Telefone:
-                                <input type="text" value={pacientState.cellPhone} name="cellPhone" disabled required placeholder="(99) 999999999" className={styles.PhoneInput} />
+                                Telefone 1:
+                                <input type="text" value={pacientState.phone1} name="phone1" disabled required placeholder="(99) 999999999" className={styles.PhoneInput} />
+                            </label>
+                            <label className="PhoneLabel">
+                                Telefone 2:
+                                <input type="text" value={pacientState.phone2} name="phone2" disabled required placeholder="(99) 999999999" className={styles.PhoneInput} />
+                            </label>
+                        </div>
+
+                        <div className={styles.secondLine}>
+                            <label className="PhoneLabel">
+                                WhatsApp:
+                                <input type="text" value={pacientState.whatsApp} name="whatsapp" disabled required placeholder="Telefone (n)" className={styles.PhoneInput} />
                             </label>
                             
                             <label className="bondLabel">
