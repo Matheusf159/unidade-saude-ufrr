@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Notifications from "../../components/Notifications/Notifications";
 import Navbar from "../../components/Navbar/Navbar";
+import { IMaskInput } from "react-imask"
 import axios from "axios";
 
 import styles from './signup.module.css'
@@ -86,6 +87,7 @@ export default function SignUpPatient() {
     }
 
     const handleChange = (e) => {
+        console.log("teste")
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -149,6 +151,7 @@ export default function SignUpPatient() {
                             <label className="maritalStatusLabel">
                                 Estado Civil: *
                                 <select className={styles.sexSelect} name="maritalState" value={formData.maritalState} onChange={handleChange} >
+                                    <option value="" disabled  hidden></option>
                                     <option value="Solteiro">Solteiro</option>
                                     <option value="Casado">Casado</option>
                                     <option value="Viuvo">Viúvo</option>
@@ -168,12 +171,50 @@ export default function SignUpPatient() {
                             
                             <label className="schoolingLabel">
                                 Escolaridade: *
-                                <input type="text" className={styles.schoolingInput} required value={formData.levelEducation} name="levelEducation" onChange={handleChange} />
+                                <select className={styles.schoolingInput} required name="levelEducation" value={formData.levelEducation} onChange={handleChange}>
+                                    <option value=""  hidden></option>
+                                    <option value="Fundamental Incompleto">Fundamental Incompleto</option>
+                                    <option value="Fundamental Cursando">Fundamental Incompleto</option>
+                                    <option value="Fundamental Completo">Fundamental Incompleto</option>
+                                    <option value="Médio Incompleto">Médio Incompleto</option>
+                                    <option value="Médio Cursando">Médio Incompleto</option>
+                                    <option value="Médio Completo">Médio Incompleto</option>
+                                    <option value="Superior Incompleto">Superior Incompleto</option>
+                                    <option value="Superior Cursando">Superior Incompleto</option>
+                                    <option value="Superior Completo">Superior Incompleto</option>
+                                </select>
                             </label>
 
                             <label className="PhoneLabel">
-                                Telefone: *
-                                <input type="text" className={styles.phoneInput} required value={formData.cellPhone} name="cellPhone" onChange={handleChange} />
+                                Telefone 1: *
+                                
+                                <IMaskInput
+                                    mask="(00) 00000-0000"
+                                    className={styles.phoneInput}
+                                    name="cellPhone"
+                                    required
+                                    value={formData.cellPhone}
+                                    onChange={handleChange}
+                                />
+                            </label>
+                            <label className="PhoneLabel">
+                                Telefone 2:
+                                
+                                <IMaskInput
+                                    mask="(00) 00000-0000"
+                                    className={styles.phoneInput}
+                                    name="cellPhone"
+                                    value={formData.cellPhone}
+                                    onChange={handleChange}
+                                />
+                            </label>
+
+                            <label className="whatsLabel">
+                                WhatsApp:
+                                <select className={styles.whatsSelect} name="whats" value={formData.whats} onChange={handleChange}>
+                                    <option value="Telefone 1">Telefone 1</option>
+                                    <option value="Telefone 2">Telefone 2</option>
+                                </select>
                             </label>
                         </div>
 
@@ -196,7 +237,7 @@ export default function SignUpPatient() {
                             <label className="ufLabel">
                                 UF: *
                                 <select className={styles.ufInput} name="uf" value={formData.uf} onChange={handleChange}>
-                                    <option value="" disabled hidden></option>
+                                    <option value=""  hidden></option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
                                     <option value="AP">AP</option>

@@ -17,7 +17,9 @@
 .firstLine {
     margin-top: 54px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-right: 18px;
+    margin-left: 18px;
 } 
 
 .nameInput {
@@ -44,7 +46,9 @@
 .secondLine {
     margin-top: 54px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-right: 18px;
+    margin-left: 18px;
 }
 
 .birthDateInput {
@@ -71,34 +75,45 @@
 .thirdLine {
     margin-top: 54px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-right: 18px;
+    margin-left: 18px;
 }
 
 .professionInput {
     width: 170px;
     height: 30px;
-    margin-left: 8px;
+    /* margin-left: 8px; */
     border-radius: 4px;
 }
 
 .schoolingInput {
-    width: 200px;
+    width: 170px;
     height: 30px;
-    margin-left: 8px;
+    /* margin-left: 8px; */
     border-radius: 4px;
 }
 
 .phoneInput {
-    width: 170px;
+    width: 130px;
     height: 30px;
-    margin-left: 8px;
+    /* margin-left: 8px; */
+    border-radius: 4px;
+}
+
+.whatsSelect {
+    width: 90px;
+    height: 30px;
+    /* margin-left: 8px; */
     border-radius: 4px;
 }
 
 .fourthLine {
     margin-top: 54px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-right: 18px;
+    margin-left: 18px;
 }
 
 .addressInput {
@@ -123,7 +138,7 @@
 }
 
 .ufInput {
-    width: 30px;
+    width: 50px;
     height: 30px;
     margin-left: 8px;
     border-radius: 4px;
