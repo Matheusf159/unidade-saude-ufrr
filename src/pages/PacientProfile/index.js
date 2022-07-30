@@ -92,11 +92,17 @@ export default function PacientProfile() {
                                 <Link to="/schedule" state={{pacient:pacientData}}>
                                     <button className={styles.button}>AGENDAR</button>
                                 </Link>
+                                <Link to="/pacientHistoric" state={{pacient: {id: pacientData._id, name: pacientData.name}}}>
+                                    <button className={styles.button}>HISTÓRICO</button>
+                                </Link>
                             </div>
                             :
                             <div className={styles.right}>
                                 <button className={styles.buttonOff} disabled></button>
                                 <button className={styles.buttonOff} disabled></button>
+                                <Link to="/pacientHistoric" state={{pacient: {id: pacientData._id, name: pacientData.name}}}>
+                                    <button className={styles.button}>HISTÓRICO</button>
+                                </Link>
                             </div>
                         }
                     </div>

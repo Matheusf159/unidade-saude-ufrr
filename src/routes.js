@@ -13,6 +13,7 @@ import PacientSearch from './pages/PacientSearch'
 import Users from './pages/Users'
 import UserProfile from './pages/UserProfile'
 import RegisterUser from './pages/RegisterUser'
+import PacientHistoric from './pages/PacientHistoric'
 
 export default function Router() {
     return (
@@ -30,6 +31,7 @@ export default function Router() {
                 <Route path="/users" element={<Users />} />
                 <Route path="/userProfile" element={ <UserProfile />} />
                 <Route path="/registerUser" element={<RegisterUser />} />
+                <Route path="/pacientHistoric" element={<PacientHistoric />} />
             </Routes>
         </BrowserRouter>  
     )

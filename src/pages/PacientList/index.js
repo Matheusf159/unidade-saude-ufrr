@@ -11,7 +11,7 @@ export default function PacientList() {
     
     const token = localStorage.getItem('TokenHealthUnityUFRR');
     const decodedToken = decode(token);
-    const header = decodedToken.type === "adm"?["ID", "Nome", "Profissional responsável", "horário", "Presente"]: ["ID", "Nome", "horário", "Presente"];
+    const header = decodedToken.type === "adm"?["ID", "Nome", "Profissional responsável", "Horário", "Presente"]: ["ID", "Nome", "Horário", "Presente"];
     const [items, setItems] = useState([]);
 
     let currentDate = new Date();

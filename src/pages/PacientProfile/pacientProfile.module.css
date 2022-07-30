@@ -32,7 +32,7 @@
 
 .left {
     display: flex;
-    width: 60%;
+    width: 40%;
 }
 
 .nameRegisty {
@@ -44,7 +44,7 @@
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
-    width: 30%;
+    width: 45%;
 }
 
 .datas {
