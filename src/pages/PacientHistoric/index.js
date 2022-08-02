@@ -11,7 +11,7 @@ export default function PacientHistoric() {
     
     const location =  useLocation();
     const token = localStorage.getItem('TokenHealthUnityUFRR');
-    const header = ["ID", "Profissional responsável", "Data", "Horário"];
+    const header = ["ID", "Profissional responsável", "Especialização", "Data", "Horário"];
     const [items, setItems] = useState([]);
     const [pacientData, setPacientData] =  useState({id: '', name: ''});
 
@@ -32,6 +32,7 @@ export default function PacientHistoric() {
                     res.data.map(item => {
                         tempColumns.push(item._id);
                         tempColumns.push(item.userId.name);
+                        tempColumns.push(item.userId.type);
                         tempColumns.push(item.scheduleDate.substr(8,2)+"/"+item.scheduleDate.substr(5,2)+"/"+item.scheduleDate.substr(0,4));
                         tempColumns.push(item.time);
                         tempLines.push(tempColumns);

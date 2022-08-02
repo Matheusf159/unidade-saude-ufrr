@@ -90,7 +90,8 @@ export default function ReportGraphic() {
 
     await axios.post(`${URL}/service/createdoc`,
       {
-        reportData
+        reportData,
+        searchYear: searchYear
       },
       { responseType: 'blob' }, 
       { headers: {Authorization: AuthStr} }
@@ -110,7 +111,12 @@ export default function ReportGraphic() {
     setTimeout(() => {
         setShowNotification(false);
     }, 2000);
-}
+  }
+
+  function handleChangeYear(e) {
+    
+    
+  }
 
   return (
     <div>
