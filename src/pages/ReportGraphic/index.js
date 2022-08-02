@@ -131,6 +131,15 @@ export default function ReportGraphic() {
                   <button className={styles.btnSearch} onClick={()=>LoadReport()}>Buscar</button>
               </label>
               <button className={styles.btn} onClick={generateReport}>Gerar Relatório</button>
+
+              <div>
+                <h2>SERVIÇOS REALIZADOS</h2>
+                <p>{`Serviço de Dentista: ${reportData.Dentist}`}</p>
+                <p>{`Serviço de Fisioterapia: ${reportData.Physiotherapist}`}</p>
+                <p>{`Serviço de Médico: ${reportData.Doctor}`}</p>
+                <p>{`Serviço de Enfermagem: ${reportData.Nurse}`}</p>
+                <p>{`Serviço de Psicologia: ${reportData.Psychologist}`}</p>
+              </div>
             </div>
         </div>
 
