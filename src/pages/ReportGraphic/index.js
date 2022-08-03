@@ -87,11 +87,11 @@ export default function ReportGraphic() {
   async function generateReport(){
     //remove o " no início e no fim de token 
     const AuthStr = `Bearer ${token.substr(1, token.length-2)}`;
-
+    
     await axios.post(`${URL}/service/createdoc`,
       {
         reportData,
-        searchYear: searchYear
+        year: year
       },
       { responseType: 'blob' }, 
       { headers: {Authorization: AuthStr} }
