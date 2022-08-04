@@ -279,13 +279,6 @@ export default function SignUpPatient() {
                                     <option value="Comunidade">Comunidade</option>
                                 </select>
                             </label>
-                            
-                            <div style={{display: formData.origin === "Servidor" ? "" : "none"}}>
-                                <label className="nameOrignLabel">
-                                    Nome do Servidor(a): *
-                                    <input type="text" className={styles.nameOrignInput} value={formData.namePublicEmploye} name="namePublicEmploye" onChange={handleChange} />
-                                </label>
-                            </div>
 
                             <div style={{display: formData.origin === "Dependente" ? "" : "none"}}>
                                 <label className="nameOrignLabel">

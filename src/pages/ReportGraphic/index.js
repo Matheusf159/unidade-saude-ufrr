@@ -90,8 +90,8 @@ export default function ReportGraphic() {
 
     await axios.post(`${URL}/service/createdoc`,
       {
-        reportData,
-        searchYear: searchYear
+        reportData: reportData,
+        year: year
       },
       { responseType: 'blob' }, 
       { headers: {Authorization: AuthStr} }
