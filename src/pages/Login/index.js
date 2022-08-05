@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Grid, Paper, Typography, Container } from '@mui/material';
+import { Button, Grid, Paper, Typography, Container, Checkbox } from '@mui/material';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import axios from 'axios';
 
@@ -22,8 +22,10 @@ export default function Login (){
 
     const [radioOpts, setRadioOpts] = useState([
         [{name: "Dentista", value: "Dentista-0", checked: true}, {name: "Enfermeiro(a)", value: "Enfermeiro(a)-0", checked: false}],
-        [{name: "Fisioterapeuta", value: "Fisioterapeuta-1", checked: false}, {name: "Médico(a)", value: "Médico(a)-1", checked: false}],
-        [{name: "Psicólogo(a)", value: "Psicólogo(a)-2", checked: false}]
+        [{name: "Fisioterapeuta", value: "Fisioterapeuta-1", checked: false}, {name: "Pediatra", value: "Pediatra-1", checked: false}],
+        [{name: "Psicólogo(a)", value: "Psicólogo(a)-2", checked: false}, {name: "Serviço Social", value: "Serviço Social-2", checked: false}],
+        [{name: "Nutricionista", value: "Nutricionista-3", checked: false}, {name: "Clínico Geral", value: "Clínico Geral-3", checked: false}],
+        [{name: "Recepscionista", value: "Recepscionista-4", checked: false}],
     ]);
 
     const [selectedRadio, setSelectedRadio] = useState({row: 0, column: 0});
@@ -154,8 +156,13 @@ export default function Login (){
                                 </>
                             )}
                         <Grid container rowSpacing={2} style={{marginTop: "5px"}}>
+                            <Grid container>
+                                { isSignup && <p>Estagiário(a)</p>}
+                                { isSignup && <Checkbox name="dsdsd" />}
+                            </Grid>
                             <Input name="userName" label="Nome de usuário" handleChange={handleChange} type="text" />
                             <Input name="password" label="Senha" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>       
+                            
                             { isSignup && <Input name="confirmPassword" label="Repita a senha" handleChange={handleChange} type="password" />}
                         </Grid>
 
