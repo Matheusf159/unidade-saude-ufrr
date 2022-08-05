@@ -82,29 +82,19 @@ export default function PacientProfile() {
                                 
                             </div>
                         </div>
-
-                        {decodedToken.type=== "adm"
-                            ?
-                            <div className={styles.right}>
-                                <Link to="/signupPatient" state={{pacient:pacientData}}>
-                                    <button className={styles.button}>EDITAR</button>
-                                </Link>
-                                <Link to="/schedule" state={{pacient:pacientData}}>
-                                    <button className={styles.button}>AGENDAR</button>
-                                </Link>
-                                <Link to="/pacientHistoric" state={{pacient: {id: pacientData._id, name: pacientData.name}}}>
-                                    <button className={styles.button}>HISTÓRICO</button>
-                                </Link>
-                            </div>
-                            :
-                            <div className={styles.right}>
-                                <button className={styles.buttonOff} disabled></button>
-                                <button className={styles.buttonOff} disabled></button>
-                                <Link to="/pacientHistoric" state={{pacient: {id: pacientData._id, name: pacientData.name}}}>
-                                    <button className={styles.button}>HISTÓRICO</button>
-                                </Link>
-                            </div>
-                        }
+                        
+                        <div className={styles.right}>
+                            <Link to="/signupPatient" state={{pacient:pacientData}}>
+                                <button className={styles.button}>EDITAR</button>
+                            </Link>
+                            <Link to="/schedule" state={{pacient:pacientData}}>
+                                <button className={styles.button}>AGENDAR</button>
+                            </Link>
+                            <Link to="/pacientHistoric" state={{pacient: {id: pacientData._id, name: pacientData.name}}}>
+                                <button className={styles.button}>HISTÓRICO</button>
+                            </Link>
+                        </div>
+                            
                     </div>
 
                     <div className={styles.data}>

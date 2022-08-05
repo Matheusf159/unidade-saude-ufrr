@@ -77,12 +77,16 @@ export default function SignUpPatient() {
                 ], 
                 {headers: {Authorization: AuthStr}}
             ).then(res => {
-                //create ui msg box
-                history('/menu');
+                setMsg(res.data.message);
+                activateNotification('success');
             })
             .catch(function (error) {
-                //create ui msg box
-                console.log(error);
+                if(error.response.data!==undefined){
+                    setMsg(error.response.data.message);
+                }
+                else {
+                    setMsg("Não foi possível se conectar ao servidor");
+                }
             })
         }
     }

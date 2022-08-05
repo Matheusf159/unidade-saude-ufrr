@@ -40,22 +40,15 @@ export default function Menu() {
                             </button>
                         </Link>
 
-                        <Link to="/users" className={styles.btnMenu} style={{display: decodedToken.type!== "adm"? "none": ""}}>
-                            <button className={styles.button}>
-                                <MdGroups size={50} />
-                                Usuários
-                            </button>
-                        </Link>
-                    </div> 
-                    
-                    <div className={styles.line} style={{display: decodedToken.type!== "adm"? "none": ""}}>
                         <Link to="/reportGraphic" className={styles.btnMenu} >
                             <button className={styles.button}>
                                 <MdOutlineAddchart size={50} />
                                 Relatório
                             </button>
                         </Link>
-
+                    </div> 
+                    
+                    <div className={styles.line}>
                         <Link to="/signupPatient" className={styles.btnMenu}>
                             <button className={styles.button}>
                                 <MdGroupAdd size={50} />
@@ -63,7 +56,14 @@ export default function Menu() {
                             </button>
                         </Link>
 
-                        <Link to="/registerUser" className={styles.btnMenu} >
+                        <Link to="/users" className={styles.btnMenu} style={{display: decodedToken.type!== "adm"? "none": ""}}>
+                            <button className={styles.button}>
+                                <MdGroups size={50} />
+                                Usuários
+                            </button>
+                        </Link>
+
+                        <Link to="/registerUser" className={styles.btnMenu} style={{display: decodedToken.type!== "adm"? "none": ""}}>
                             <button className={styles.button}>
                                 <MdPersonAdd size={50} />
                                 Cadastrar Usuário

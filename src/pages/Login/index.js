@@ -14,7 +14,7 @@ import styles from "./login.module.css";
 const URL = process.env.REACT_APP_URL;
 export default function Login (){
     
-    const initialState = { name: '', userName: '', password: '', confirmPassword: '', type: 'Dentista' };
+    const initialState = { name: '', intern: false, userName: '', password: '', confirmPassword: '', type: 'Dentista' };
 
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
@@ -74,7 +74,7 @@ export default function Login (){
 
     async function createUser(){
         await axios.post(`${URL}/user/createUser`, 
-            {name: formData.name, userName: formData.userName, password: formData.password, type: formData.type}
+            {name: formData.name, intern: formData.intern, userName: formData.userName, password: formData.password, type: formData.type}
         ).then(res => {
             switchMode();
             setMsg(res.data.message);
@@ -93,7 +93,17 @@ export default function Login (){
     }
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        if(e.target.name === "intern"){
+            if(formData.intern === true){
+                setFormData({ ...formData, [e.target.name]: false });
+            }
+            else{
+                setFormData({ ...formData, [e.target.name]: true });
+            }
+        }
+        else{
+            setFormData({ ...formData, [e.target.name]: e.target.value });
+        }
     };
 
     const switchMode = () => {
@@ -158,7 +168,7 @@ export default function Login (){
                         <Grid container rowSpacing={2} style={{marginTop: "5px"}}>
                             <Grid container>
                                 { isSignup && <p>Estagiário(a)</p>}
-                                { isSignup && <Checkbox name="dsdsd" />}
+                                { isSignup && <Checkbox name="intern" onChange={handleChange} />}
                             </Grid>
                             <Input name="userName" label="Nome de usuário" handleChange={handleChange} type="text" />
                             <Input name="password" label="Senha" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>       
